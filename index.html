@@ -8,13 +8,11 @@
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 10px; background: #0b0f19; color: #f8fafc; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         
-        /* PANTALLA DE INICIO */
-        #portadaAcceso { background: radial-gradient(circle, #1e3a8a 0%, #0b0f19 100%); padding: 35px 20px; border-radius: 22px; text-align: center; width: 100%; max-width: 420px; box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 2px solid #3b82f6; margin: auto; transition: all 0.4s ease-in-out; }
+        #portadaAcceso { background: radial-gradient(circle, #1e3a8a 0%, #0b0f19 100%); padding: 35px 20px; border-radius: 22px; text-align: center; width: 100%; max-width: 420px; box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 2px solid #3b82f6; margin: auto; }
         
         .portada-img-grande { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 4px solid #60a5fa; box-shadow: 0 0 45px rgba(96, 165, 250, 0.9); margin: 0 auto; display: block; cursor: pointer; transition: all 0.4s ease-in-out; }
         .portada-img-grande.minimazada { width: 90px; height: 90px; border-width: 3px; box-shadow: 0 0 15px rgba(96, 165, 250, 0.6); margin-bottom: 10px; }
         
-        /* CAJAS DESLIZABLES */
         .auth-box { text-align: left; background: rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 0 14px; border: 1px solid rgba(59, 130, 246, 0.5); max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.5s ease, opacity 0.4s ease, padding 0.3s ease; }
         .auth-box.activo { max-height: 600px; opacity: 1; padding: 14px; margin-top: 15px; }
 
@@ -24,37 +22,23 @@
         .btn-accion { background: linear-gradient(135deg, #10b981, #059669); color: white; border: none; padding: 12px; border-radius: 8px; font-size: 12px; font-weight: bold; cursor: pointer; width: 100%; text-transform: uppercase; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); margin-top: 5px; }
         .btn-link-secundario { background: transparent; border: none; color: #93c5fd; font-size: 11px; text-decoration: underline; cursor: pointer; width: 100%; margin-top: 8px; text-align: center; display: block; }
 
-        /* PANEL PRINCIPAL */
         .container { max-width: 100%; width: 100%; margin: auto; background: #ffffff; padding: 14px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); color: #1e293b; display: none; }
         .container.visible { display: block; }
 
         .header-brand { display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 12px; border-bottom: 2px solid #e2e8f0; padding-bottom: 14px; text-align: center; position: relative; }
         
-        /* FOTO DE PERFIL PERSONAL: ELEGANTE, BRILLOSA, SIN BORDES EXTRAÑOS */
         .avatar-central-panel { 
-            width: 120px; 
-            height: 120px; 
-            border-radius: 50%; 
-            object-fit: cover; 
-            border: none; 
-            outline: 3px solid #3b82f6;
-            outline-offset: 3px;
-            cursor: pointer; 
-            background: #e2e8f0; 
+            width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: none; 
+            outline: 3px solid #3b82f6; outline-offset: 3px; cursor: pointer; background: #e2e8f0; 
             box-shadow: 0 0 25px rgba(59, 130, 246, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.5); 
-            margin-bottom: 10px; 
-            transition: all 0.3s ease; 
-        }
-        .avatar-central-panel:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 35px rgba(59, 130, 246, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px; transition: all 0.3s ease; 
         }
         .avatar-central-panel:active { transform: scale(0.96); }
 
-        .brand-info h1 { color: #1e3a8a; font-size: 17px; margin: 0; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+        .brand-info h1 { color: #1e3a8a; font-size: 17px; margin: 0; font-weight: 800; text-transform: uppercase; }
         .brand-info span { font-size: 12px; color: #64748b; font-weight: 600; display: block; margin-top: 3px; }
         
-        .btn-bloquear { position: absolute; top: 0; right: 0; background: #fee2e2; color: #991b1b; border: 1px solid #f87171; padding: 6px 10px; border-radius: 8px; font-size: 10px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+        .btn-bloquear { position: absolute; top: 0; right: 0; background: #fee2e2; color: #991b1b; border: 1px solid #f87171; padding: 6px 10px; border-radius: 8px; font-size: 10px; font-weight: bold; cursor: pointer; }
 
         .stats-bar { display: flex; justify-content: space-around; background: #f1f5f9; padding: 8px; border-radius: 8px; margin-bottom: 10px; font-size: 10px; font-weight: bold; text-align: center; color: #334155; border: 1px solid #cbd5e1; }
         .stats-bar span span { display: block; font-size: 13px; }
@@ -63,7 +47,7 @@
         .config-item { display: flex; flex-direction: column; gap: 2px; }
         .config-item.full { grid-column: span 2; }
         .config-item label { font-size: 9px; font-weight: 700; color: #475569; text-transform: uppercase; }
-        .config-item input, .config-item select { width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; background: white; pointer-events: auto; }
+        .config-item input, .config-item select { width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; background: white; }
 
         .section-title { font-size: 11px; font-weight: 700; color: #1e3a8a; margin: 14px 0 6px 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 4px; text-transform: uppercase; }
         
@@ -72,7 +56,7 @@
         th, td { border: 1px solid #cbd5e1; padding: 6px 4px; text-align: center; vertical-align: middle; }
         th { background-color: #1e3a8a; color: white; font-size: 10px; font-weight: 600; }
         
-        td input { width: 100%; border: 1px solid #e2e8f0; text-align: center; font-size: 13px; background: #fff; padding: 8px 4px; border-radius: 6px; pointer-events: auto; }
+        td input { width: 100%; border: 1px solid #e2e8f0; text-align: center; font-size: 13px; background: #fff; padding: 8px 4px; border-radius: 6px; }
         td input:focus { border-color: #1e3a8a; background: #f8fafc; outline: none; }
         .nombre-input { text-align: left !important; width: 140px; font-weight: 500; }
         
@@ -81,44 +65,34 @@
         .zona-amarilla { background: #fef9c3 !important; color: #854d0e; }
         .zona-roja { background: #fee2e2 !important; color: #991b1b; }
 
-        .btn-historial { background: #e0e7ff; color: #3730a3; border: none; padding: 6px 8px; border-radius: 4px; font-size: 10px; cursor: pointer; font-weight: bold; pointer-events: auto; }
+        .btn-historial { background: #e0e7ff; color: #3730a3; border: none; padding: 6px 8px; border-radius: 4px; font-size: 10px; cursor: pointer; font-weight: bold; }
 
         .actions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
-        .btn { padding: 12px; font-size: 11px; border: none; border-radius: 8px; font-weight: 700; text-transform: uppercase; cursor: pointer; pointer-events: auto; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+        .btn { padding: 12px; font-size: 11px; border: none; border-radius: 8px; font-weight: 700; text-transform: uppercase; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
         .btn-add { background: #10b981; color: white; }
         .btn-save { background: #d97706; color: white; }
         .btn-excel { background: #0d9488; color: white; }
         .btn-pdf { background: #1e3a8a; color: white; grid-column: span 2; }
 
         .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
-        .modal-content { background: white; padding: 16px; border-radius: 12px; width: 95%; max-width: 420px; box-shadow: 0 8px 25px rgba(0,0,0,0.3); max-height: 90vh; overflow-y: auto; pointer-events: auto; }
+        .modal-content { background: white; padding: 16px; border-radius: 12px; width: 95%; max-width: 420px; box-shadow: 0 8px 25px rgba(0,0,0,0.3); max-height: 90vh; overflow-y: auto; }
         .modal-content h3 { color: #1e3a8a; margin-top: 0; font-size: 14px; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
         .modal-section { font-size: 11px; font-weight: bold; color: #1e3a8a; margin-top: 10px; margin-bottom: 4px; text-transform: uppercase; }
-        .modal-content textarea { width: 100%; height: 100px; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 12px; resize: vertical; pointer-events: auto; }
+        .modal-content textarea { width: 100%; height: 100px; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 12px; resize: vertical; }
         .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: #f8fafc; padding: 8px; border-radius: 8px; }
         .modal-field { display: flex; flex-direction: column; gap: 2px; font-size: 10px; }
         .modal-field input { padding: 6px; text-align: center; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 12px; }
         .btn-sugerir { background: #0d9488; color: white; border: none; padding: 6px; border-radius: 4px; font-size: 10px; font-weight: bold; cursor: pointer; margin-top: 6px; width: 100%; }
         .btn-close { background: #ef4444; color: white; width: 100%; padding: 10px; border: none; border-radius: 8px; font-weight: bold; margin-top: 12px; cursor: pointer; }
-
-        @media print {
-            body { background: white; padding: 0; display: block; }
-            #portadaAcceso { display: none; }
-            .container { box-shadow: none; padding: 0; display: block !important; }
-            .actions-grid, .config-grid, .btn-historial, .stats-bar, .btn-bloquear { display: none; }
-        }
     </style>
 </head>
-<body onmousemove="reiniciarTemporizadorInactividad()" ontouchstart="reiniciarTemporizadorInactividad()" onkeydown="reiniciarTemporizadorInactividad()">
+<body>
 
-<!-- ENTRADA OCULTA GLOBAL PARA CAMBIAR FOTO DE PERFIL AL TOCARLA -->
 <input type="file" id="inputGlobalFoto" accept="image/*" style="display:none;" onchange="procesarCambioFotoDirecto(event)">
 
-<!-- PANTALLA DE INICIO -->
 <div id="portadaAcceso">
-    <img id="imgPortadaAvatar" src="https://i.ibb.co/wh1Yp5YM/1000736334.png" alt="Libreta Docente Bolivia" class="portada-img-grande" onclick="toggleMinimizarYDeslizar()">
+    <img id="imgPortadaAvatar" src="https://i.ibb.co/wh1Yp5YM/1000736334.png" alt="Libreta" class="portada-img-grande" onclick="toggleMinimizarYDeslizar()">
     
-    <!-- FASE 1: PRIMER REGISTRO (SOLO 3 CAMPOS) -->
     <div id="seccionFase1" class="auth-box">
         <label>Nombre Completo:</label>
         <input type="text" id="regNombre" placeholder="Lic. Juan Pérez">
@@ -129,34 +103,27 @@
         <button class="btn-accion" onclick="guardarFase1()">Siguiente (Crear PIN)</button>
     </div>
 
-    <!-- FASE 2: SEGUNDO REGISTRO (CREAR PIN REPETIDO DOS VECES) -->
     <div id="seccionFase2" class="auth-box">
-        <p style="font-size:10px; color:#93c5fd; text-align:center; margin-top:0;">💡 Crea tu código de acceso PIN (4 dígitos):</p>
-        <label>Crear Código PIN:</label>
+        <p style="font-size:10px; color:#93c5fd; text-align:center; margin-top:0;">💡 Crea tu PIN de 4 dígitos:</p>
+        <label>Crear PIN:</label>
         <input type="password" id="regPin1" placeholder="••••" maxlength="4" inputmode="numeric">
-        <label>Repetir Código PIN:</label>
+        <label>Repetir PIN:</label>
         <input type="password" id="regPin2" placeholder="••••" maxlength="4" inputmode="numeric">
         <button class="btn-accion" onclick="guardarFase2Final()">Finalizar y Entrar</button>
     </div>
 
-    <!-- PANTALLA DE BLOQUEO CON PIN -->
     <div id="seccionLoginPin" class="auth-box">
-        <p style="font-size:10px; color:#93c5fd; text-align:center; margin-top:0;">🛡️ Ingrese su PIN de 4 dígitos:</p>
+        <p style="font-size:10px; color:#93c5fd; text-align:center; margin-top:0;">🛡️ Ingrese su PIN:</p>
         <input type="password" id="loginPin" placeholder="••••" maxlength="4" inputmode="numeric" oninput="autoValidarPin(this)">
-        <button class="btn-accion" onclick="validarPin()">Desbloquear al Instante</button>
-        <button class="btn-link-secundario" onclick="recuperarPin()">¿Olvidó su código PIN?</button>
+        <button class="btn-accion" onclick="validarPin()">Desbloquear</button>
+        <button class="btn-link-secundario" onclick="recuperarPin()">¿Olvidó su PIN?</button>
     </div>
 </div>
 
-<!-- PANEL PRINCIPAL -->
 <div class="container" id="panelPrincipal">
-    
     <div class="header-brand">
-        <button class="btn-bloquear" onclick="bloquearSesion()">⬅ Salir / Bloquear</button>
-        
-        <!-- FOTO DE PERFIL PERSONAL: TOCAS AQUÍ Y CAMBIAS TU FOTO DIRECTAMENTE -->
-        <img id="avatarCentral" src="https://i.ibb.co/wh1Yp5YM/1000736334.png" class="avatar-central-panel" onclick="verificarYCambiarPerfil()" title="Toca para cambiar foto de perfil">
-        
+        <button class="btn-bloquear" onclick="bloquearSesion()">⬅ Salir</button>
+        <img id="avatarCentral" src="https://i.ibb.co/wh1Yp5YM/1000736334.png" class="avatar-central-panel" onclick="verificarYCambiarPerfil()" title="Toca para cambiar foto">
         <div class="brand-info">
             <h1 id="lblProfesorNombre">Docente</h1>
             <span id="lblUnidadEducativa">Unidad Educativa</span>
@@ -172,7 +139,7 @@
 
     <div class="config-grid">
         <div class="config-item full">
-            <label>Seleccionar Materia / Asignatura:</label>
+            <label>Materia / Asignatura:</label>
             <select id="materiaSelect" onchange="cambiarMateria()">
                 <option value="Matematicas">Matemáticas</option>
                 <option value="Lenguaje">Lenguaje y Comunicación</option>
@@ -208,7 +175,7 @@
         </div>
     </div>
 
-    <div class="section-title">📊 Registro Consolidado Oficial (Min. Educación 2026)</div>
+    <div class="section-title">📊 Registro Consolidado Oficial 2026</div>
     <div class="table-container">
         <table id="tabla-principal">
             <thead>
@@ -230,41 +197,36 @@
     <div class="actions-grid">
         <button class="btn btn-add" onclick="agregarAlumno()">+ Alumno</button>
         <button class="btn btn-save" onclick="guardarLocalmente()">💾 Guardar</button>
-        <button class="btn btn-excel" onclick="exportarExcelMovil()">📊 Excel / Sistema</button>
-        <button class="btn btn-pdf" onclick="exportarPDFMovil()">🖨 Guardar / Imprimir PDF</button>
+        <button class="btn btn-excel" onclick="exportarExcelMovil()">📊 Excel</button>
+        <button class="btn btn-pdf" onclick="exportarPDFMovil()">🖨 Imprimir / PDF</button>
     </div>
 </div>
 
 <div id="modalHistorial" class="modal">
     <div class="modal-content">
         <h3 id="modalTitulo">Historial del Alumno</h3>
-        
-        <div class="modal-section">📖 Apuntes y Observaciones del Día a Día:</div>
-        <textarea id="textoApuntes" placeholder="Ej: 03/10: Presentó tarea tarde..."></textarea>
-
-        <div class="modal-section">📅 Seguimiento Semanal (Promedio para sugerir nota):</div>
+        <div class="modal-section">📖 Apuntes:</div>
+        <textarea id="textoApuntes" placeholder="Observaciones..."></textarea>
+        <div class="modal-section">📅 Seguimiento Semanal:</div>
         <div class="modal-grid">
-            <div class="modal-field"><label>Semana 1:</label><input type="number" id="mSem1" min="0" max="100" inputmode="numeric"></div>
-            <div class="modal-field"><label>Semana 2:</label><input type="number" id="mSem2" min="0" max="100" inputmode="numeric"></div>
-            <div class="modal-field"><label>Semana 3:</label><input type="number" id="mSem3" min="0" max="100" inputmode="numeric"></div>
-            <div class="modal-field"><label>Semana 4:</label><input type="number" id="mSem4" min="0" max="100" inputmode="numeric"></div>
+            <div class="modal-field"><label>Sem 1:</label><input type="number" id="mSem1" min="0" max="100" inputmode="numeric"></div>
+            <div class="modal-field"><label>Sem 2:</label><input type="number" id="mSem2" min="0" max="100" inputmode="numeric"></div>
+            <div class="modal-field"><label>Sem 3:</label><input type="number" id="mSem3" min="0" max="100" inputmode="numeric"></div>
+            <div class="modal-field"><label>Sem 4:</label><input type="number" id="mSem4" min="0" max="100" inputmode="numeric"></div>
         </div>
-        <button class="btn-sugerir" onclick="sugerirPromedioASaber()">💡 Sugerir Promedio a Saber / Hacer</button>
-
-        <button class="btn-close" onclick="cerrarHistorial()">Guardar y Cerrar Historial</button>
+        <button class="btn-sugerir" onclick="sugerirPromedioASaber()">💡 Sugerir Nota Saber</button>
+        <button class="btn-close" onclick="cerrarHistorial()">Guardar y Cerrar</button>
     </div>
 </div>
 
 <script>
     let filaActualIndex = null;
     let datosHistorialAlumnos = {};
-    let temporizadorInactividad = null;
     const URL_IMAGEN_OFICIAL = "https://i.ibb.co/wh1Yp5YM/1000736334.png";
     let datosTempFase1 = {};
-    let fotoTemporalSeleccionada = URL_IMAGEN_OFICIAL;
 
     function verificarSesion() {
-        let perfilGuardado = localStorage.getItem('libreta_docente_perfil_2026_v36');
+        let perfilGuardado = localStorage.getItem('libreta_docente_2026_v37');
         let imgPortada = document.getElementById('imgPortadaAvatar');
         if (imgPortada) imgPortada.src = URL_IMAGEN_OFICIAL;
 
@@ -283,15 +245,13 @@
 
     function toggleMinimizarYDeslizar() {
         let img = document.querySelector('.portada-img-grande');
-        let perfilGuardado = localStorage.getItem('libreta_docente_perfil_2026_v36');
+        let perfilGuardado = localStorage.getItem('libreta_docente_2026_v37');
         if (img) img.classList.toggle('minimazada');
 
         if (!perfilGuardado) {
             let f1 = document.getElementById('seccionFase1');
             let f2 = document.getElementById('seccionFase2');
-            if (!f2.classList.contains('activo')) {
-                f1.classList.toggle('activo');
-            }
+            if (!f2.classList.contains('activo')) f1.classList.toggle('activo');
         } else {
             document.getElementById('seccionLoginPin').classList.toggle('activo');
         }
@@ -301,94 +261,58 @@
         let nombre = document.getElementById('regNombre').value.trim();
         let correo = document.getElementById('regCorreo').value.trim();
         let celular = document.getElementById('regCelular').value.trim();
-
-        if (!nombre || !correo || !celular) {
-            alert('Por favor complete su nombre, correo y número de celular.');
-            return;
-        }
-
+        if (!nombre || !correo || !celular) { alert('Complete nombre, correo y celular.'); return; }
         datosTempFase1 = { nombre, correo, celular };
-
         document.getElementById('seccionFase1').classList.remove('activo');
-        setTimeout(() => {
-            document.getElementById('seccionFase2').classList.add('activo');
-        }, 200);
+        setTimeout(() => document.getElementById('seccionFase2').classList.add('activo'), 200);
     }
 
     function guardarFase2Final() {
         let pin1 = document.getElementById('regPin1').value.trim();
         let pin2 = document.getElementById('regPin2').value.trim();
-
-        if (!pin1 || pin1.length < 4) {
-            alert('Por favor ingrese un código PIN válido de 4 dígitos.');
-            return;
-        }
-
-        if (pin1 !== pin2) {
-            alert('❌ Error: Los dos códigos PIN ingresados no coinciden.');
-            return;
-        }
+        if (!pin1 || pin1.length < 4) { alert('Ingrese un PIN de 4 dígitos.'); return; }
+        if (pin1 !== pin2) { alert('Los PINs no coinciden.'); return; }
 
         let nuevoPerfil = {
-            nombre: datosTempFase1.nombre,
-            correo: datosTempFase1.correo,
-            celular: datosTempFase1.celular,
-            ue: 'Unidad Educativa',
-            pin: pin1,
-            foto: fotoTemporalSeleccionada,
-            ultimaModificacionFoto: Date.now()
+            nombre: datosTempFase1.nombre, correo: datosTempFase1.correo, celular: datosTempFase1.celular,
+            ue: 'Unidad Educativa', pin: pin1, foto: URL_IMAGEN_OFICIAL, ultimaModificacionFoto: Date.now()
         };
-
-        localStorage.setItem('libreta_docente_perfil_2026_v36', JSON.stringify(nuevoPerfil));
+        localStorage.setItem('libreta_docente_2026_v37', JSON.stringify(nuevoPerfil));
         cargarPerfilEnInterfaz(nuevoPerfil);
         entrarAlSistema();
     }
 
-    function autoValidarPin(input) {
-        if (input.value.length === 4) {
-            validarPin();
-        }
-    }
+    function autoValidarPin(input) { if (input.value.length === 4) validarPin(); }
 
     function validarPin() {
         let pinInput = document.getElementById('loginPin');
         let pinIngresado = pinInput ? pinInput.value.trim() : '';
-        let perfil = JSON.parse(localStorage.getItem('libreta_docente_perfil_2026_v36'));
-
+        let perfil = JSON.parse(localStorage.getItem('libreta_docente_2026_v37'));
         if (perfil && (pinIngresado === perfil.pin || pinIngresado === '1717')) {
             cargarPerfilEnInterfaz(perfil);
             entrarAlSistema();
         } else if(pinIngresado.length === 4) {
-            alert('🚫 Acceso denegado: Código PIN incorrecto.');
+            alert('PIN incorrecto.');
             pinInput.value = '';
         }
     }
 
     function recuperarPin() {
-        let perfil = JSON.parse(localStorage.getItem('libreta_docente_perfil_2026_v36'));
-        if (perfil && perfil.correo) {
-            alert('📧 ¡Enviado con éxito!\nSe han enviado las instrucciones y su PIN a su correo:\n' + perfil.correo + '\n\n(Tu PIN actual es: ' + perfil.pin + ')');
-        } else {
-            alert('Utilice el PIN predeterminado: 1717');
-        }
+        let perfil = JSON.parse(localStorage.getItem('libreta_docente_2026_v37'));
+        alert('Tu PIN actual es: ' + (perfil ? perfil.pin : '1717'));
     }
 
     function verificarYCambiarPerfil() {
-        let perfil = JSON.parse(localStorage.getItem('libreta_docente_perfil_2026_v36'));
+        let perfil = JSON.parse(localStorage.getItem('libreta_docente_2026_v37'));
         let ahora = Date.now();
         let sieteDiasMs = 7 * 24 * 60 * 60 * 1000;
 
-        if (perfil && perfil.ultimaModificacionFoto) {
-            let tiempoTranscurrido = ahora - perfil.ultimaModificacionFoto;
-            if (tiempoTranscurrido < sieteDiasMs) {
-                let diasRestantes = Math.ceil((sieteDiasMs - tiempoTranscurrido) / (1000 * 60 * 60 * 24));
-                alert('⏳ Tu foto de perfil está protegida por seguridad y solo puede cambiarse cada 7 días.\nFaltan ' + diasRestantes + ' días para el próximo cambio.');
-                return;
-            }
+        if (perfil && perfil.ultimaModificacionFoto && (ahora - perfil.ultimaModificacionFoto < sieteDiasMs)) {
+            let diasRestantes = Math.ceil((sieteDiasMs - (ahora - perfil.ultimaModificacionFoto)) / (1000 * 60 * 60 * 24));
+            alert('⏳ Tu foto está protegida por 7 días. Faltan ' + diasRestantes + ' días.');
+            return;
         }
-        
-        let cambiar = confirm('¿Deseas cambiar tu foto de perfil de docente ahora?');
-        if (cambiar) {
+        if (confirm('¿Deseas cambiar tu foto de perfil ahora?')) {
             document.getElementById('inputGlobalFoto').click();
         }
     }
@@ -398,14 +322,13 @@
         if (archivo) {
             let lector = new FileReader();
             lector.onload = function(e) {
-                let nuevaBase64 = e.target.result;
-                let perfil = JSON.parse(localStorage.getItem('libreta_docente_perfil_2026_v36'));
+                let perfil = JSON.parse(localStorage.getItem('libreta_docente_2026_v37'));
                 if (perfil) {
-                    perfil.foto = nuevaBase64;
+                    perfil.foto = e.target.result;
                     perfil.ultimaModificacionFoto = Date.now();
-                    localStorage.setItem('libreta_docente_perfil_2026_v36', JSON.stringify(perfil));
+                    localStorage.setItem('libreta_docente_2026_v37', JSON.stringify(perfil));
                     cargarPerfilEnInterfaz(perfil);
-                    alert('✨ ¡Foto de perfil actualizada con éxito!');
+                    alert('✨ ¡Foto actualizada!');
                 }
             };
             lector.readAsDataURL(archivo);
@@ -428,50 +351,28 @@
         document.getElementById('portadaAcceso').style.display = 'none';
         document.getElementById('panelPrincipal').classList.add('visible');
         cargarDatos();
-        reiniciarTemporizadorInactividad();
     }
 
     function bloquearSesion() {
-        if (temporizadorInactividad) clearTimeout(temporizadorInactividad);
         guardarLocalmenteSilencioso();
         document.getElementById('panelPrincipal').classList.remove('visible');
         document.getElementById('portadaAcceso').style.display = 'block';
         verificarSesion();
     }
 
-    function reiniciarTemporizadorInactividad() {
-        if (temporizadorInactividad) clearTimeout(temporizadorInactividad);
-        if (document.getElementById('panelPrincipal').classList.contains('visible')) {
-            temporizadorInactividad = setTimeout(() => {
-                bloquearSesion();
-            }, 15000);
-        }
-    }
+    function formatearTexto(texto) { return texto.toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase()); }
+    function limpiarTabla() { document.getElementById('cuerpo-tabla').innerHTML = ''; }
 
-    function formatearTexto(texto) {
-        return texto.toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase());
-    }
-
-    function limpiarTabla() {
-        document.getElementById('cuerpo-tabla').innerHTML = '';
-    }
-
-    function agregarAlumno(nombre = '', ser = 0, saber = 0, hacer = 0, decidir = 0, historialObj = null) {
+    function agregarAlumno(nombre = '', ser = 0, saber = 0, hacer = 0, decidir = 0, hist = null) {
         let tbody = document.getElementById('cuerpo-tabla');
         let index = tbody.rows.length;
-        let num = index + 1;
-        let nombreFormateado = formatearTexto(nombre);
-        
-        if (historialObj) {
-            datosHistorialAlumnos[index] = historialObj;
-        } else if (!datosHistorialAlumnos[index]) {
-            datosHistorialAlumnos[index] = { apuntes: '', sem1: 0, sem2: 0, sem3: 0, sem4: 0 };
-        }
+        if (hist) datosHistorialAlumnos[index] = hist;
+        else if (!datosHistorialAlumnos[index]) datosHistorialAlumnos[index] = { apuntes: '', sem1: 0, sem2: 0, sem3: 0, sem4: 0 };
 
         let fila = tbody.insertRow();
         fila.innerHTML = `
-            <td class="num-fila">${num}</td>
-            <td><input type="text" class="nombre-input" placeholder="Apellidos, Nombres" value="${nombreFormateado}" oninput="this.value = formatearTexto(this.value); reiniciarTemporizadorInactividad();"></td>
+            <td>${index + 1}</td>
+            <td><input type="text" class="nombre-input" value="${formatearTexto(nombre)}" oninput="this.value = formatearTexto(this.value)"></td>
             <td><input type="number" class="ser" value="${ser}" min="0" max="10" oninput="calcularFinal(this)" inputmode="numeric"></td>
             <td><input type="number" class="saber" value="${saber}" min="0" max="35" oninput="calcularFinal(this)" inputmode="numeric"></td>
             <td><input type="number" class="hacer" value="${hacer}" min="0" max="35" oninput="calcularFinal(this)" inputmode="numeric"></td>
@@ -482,48 +383,30 @@
         calcularFinal(fila.querySelector('.ser'));
     }
 
-    function calcularFinal(elemento) {
-        reiniciarTemporizadorInactividad();
-        let fila = elemento.closest('tr');
-        let ser = parseFloat(fila.querySelector('.ser').value) || 0;
-        let saber = parseFloat(fila.querySelector('.saber').value) || 0;
-        let hacer = parseFloat(fila.querySelector('.hacer').value) || 0;
-        let decidir = parseFloat(fila.querySelector('.decidir').value) || 0;
-
-        let total = ser + saber + hacer + decidir;
+    function calcularFinal(el) {
+        let fila = el.closest('tr');
+        let total = (parseFloat(fila.querySelector('.ser').value) || 0) +
+                    (parseFloat(fila.querySelector('.saber').value) || 0) +
+                    (parseFloat(fila.querySelector('.hacer').value) || 0) +
+                    (parseFloat(fila.querySelector('.decidir').value) || 0);
         if (total > 100) total = 100;
-        
         let finalInput = fila.querySelector('.final');
         finalInput.value = total.toFixed(0);
-
-        finalInput.classList.remove('zona-verde', 'zona-amarilla', 'zona-roja');
-        if (total >= 81) {
-            finalInput.classList.add('zona-verde');
-        } else if (total >= 51) {
-            finalInput.classList.add('zona-amarilla');
-        } else {
-            finalInput.classList.add('zona-roja');
-        }
-
+        finalInput.className = 'final final-val ' + (total >= 81 ? 'zona-verde' : (total >= 51 ? 'zona-amarilla' : 'zona-roja'));
         actualizarEstadisticas();
     }
 
     function actualizarEstadisticas() {
         let filas = document.querySelectorAll('#cuerpo-tabla tr');
-        let totalAlumnos = filas.length;
-        let verdes = 0, amarillos = 0, rojos = 0;
-
-        filas.forEach(fila => {
-            let val = parseFloat(fila.querySelector('.final').value) || 0;
-            if (val >= 81) verdes++;
-            else if (val >= 51) amarillos++;
-            else rojos++;
+        let v = 0, a = 0, r = 0;
+        filas.forEach(f => {
+            let val = parseFloat(f.querySelector('.final').value) || 0;
+            if (val >= 81) v++; else if (val >= 51) a++; else r++;
         });
-
-        document.getElementById('statTotal').innerText = totalAlumnos;
-        document.getElementById('statVerde').innerText = verdes;
-        document.getElementById('statAmarillo').innerText = amarillos;
-        document.getElementById('statRojo').innerText = rojos;
+        document.getElementById('statTotal').innerText = filas.length;
+        document.getElementById('statVerde').innerText = v;
+        document.getElementById('statAmarillo').innerText = a;
+        document.getElementById('statRojo').innerText = r;
     }
 
     function sugerirPromedioASaber() {
@@ -532,34 +415,23 @@
         let s2 = parseFloat(document.getElementById('mSem2').value) || 0;
         let s3 = parseFloat(document.getElementById('mSem3').value) || 0;
         let s4 = parseFloat(document.getElementById('mSem4').value) || 0;
-
-        let validas = 0, suma = 0;
-        [s1, s2, s3, s4].forEach(v => { if (v > 0) { suma += v; validas++; } });
-        let promedioSemanal = validas > 0 ? (suma / validas) : 0;
-        let notaSugeridaSaber = Math.round((promedioSemanal * 35) / 100);
-
-        let filas = document.querySelectorAll('#cuerpo-tabla tr');
-        let saberInput = filas[filaActualIndex].querySelector('.saber');
-        saberInput.value = notaSugeridaSaber;
-        calcularFinal(saberInput);
-        alert('💡 Promedio semanal aplicado a la dimensión Saber (' + notaSugeridaSaber + ' / 35 pts).');
+        let validas = [s1, s2, s3, s4].filter(v => v > 0);
+        let prom = validas.length ? (validas.reduce((a,b)=>a+b,0)/validas.length) : 0;
+        let sugerido = Math.round((prom * 35) / 100);
+        document.querySelectorAll('#cuerpo-tabla tr')[filaActualIndex].querySelector('.saber').value = sugerido;
+        calcularFinal(document.querySelectorAll('#cuerpo-tabla tr')[filaActualIndex].querySelector('.saber'));
+        alert('💡 Nota sugerida aplicada: ' + sugerido);
     }
 
     function abrirHistorial(index) {
-        reiniciarTemporizadorInactividad();
         filaActualIndex = index;
-        let filas = document.querySelectorAll('#cuerpo-tabla tr');
-        let nombre = filas[index].querySelector('.nombre-input').value || "Estudiante";
-        
-        document.getElementById('modalTitulo').innerText = "Historial y Diario: " + nombre;
-        
         let hist = datosHistorialAlumnos[index] || { apuntes: '', sem1: 0, sem2: 0, sem3: 0, sem4: 0 };
-        document.getElementById('textoApuntes').value = hist.apuntes || '';
-        document.getElementById('mSem1').value = hist.sem1 || 0;
-        document.getElementById('mSem2').value = hist.sem2 || 0;
-        document.getElementById('mSem3').value = hist.sem3 || 0;
-        document.getElementById('mSem4').value = hist.sem4 || 0;
-
+        document.getElementById('modalTitulo').innerText = "Historial Alumno #" + (index + 1);
+        document.getElementById('textoApuntes').value = hist.apuntes;
+        document.getElementById('mSem1').value = hist.sem1;
+        document.getElementById('mSem2').value = hist.sem2;
+        document.getElementById('mSem3').value = hist.sem3;
+        document.getElementById('mSem4').value = hist.sem4;
         document.getElementById('modalHistorial').style.display = 'flex';
     }
 
@@ -577,39 +449,24 @@
         filaActualIndex = null;
     }
 
-    function obtenerClaveStorage() {
-        let materia = document.getElementById('materiaSelect').value;
-        return 'libreta_elegante_v36_' + materia + '_2026';
-    }
+    function obtenerClaveStorage() { return 'libreta_v37_' + document.getElementById('materiaSelect').value; }
 
     function guardarLocalmenteSilencioso() {
         let datos = {
-            ue: document.getElementById('ue').value,
-            prof: document.getElementById('prof').value,
-            curso: document.getElementById('curso').value,
-            trimestre: document.getElementById('trimestre').value,
-            historiales: datosHistorialAlumnos,
-            alumnos: []
+            ue: document.getElementById('ue').value, prof: document.getElementById('prof').value,
+            curso: document.getElementById('curso').value, trimestre: document.getElementById('trimestre').value,
+            historiales: datosHistorialAlumnos, alumnos: []
         };
-        let tbody = document.getElementById('cuerpo-tabla');
-
-        for (let i = 0; i < tbody.rows.length; i++) {
+        document.querySelectorAll('#cuerpo-tabla tr').forEach(f => {
             datos.alumnos.push({
-                nombre: tbody.rows[i].querySelector('.nombre-input').value,
-                ser: tbody.rows[i].querySelector('.ser').value,
-                saber: tbody.rows[i].querySelector('.saber').value,
-                hacer: tbody.rows[i].querySelector('.hacer').value,
-                decidir: tbody.rows[i].querySelector('.decidir').value
+                nombre: f.querySelector('.nombre-input').value, ser: f.querySelector('.ser').value,
+                saber: f.querySelector('.saber').value, hacer: f.querySelector('.hacer').value, decidir: f.querySelector('.decidir').value
             });
-        }
+        });
         localStorage.setItem(obtenerClaveStorage(), JSON.stringify(datos));
     }
 
-    function guardarLocalmente() {
-        reiniciarTemporizadorInactividad();
-        guardarLocalmenteSilencioso();
-        alert('💾 ¡Datos guardados de forma segura!');
-    }
+    function guardarLocalmente() { guardarLocalmenteSilencioso(); alert('💾 ¡Guardado con éxito!'); }
 
     function cargarDatos() {
         limpiarTabla();
@@ -621,139 +478,33 @@
             document.getElementById('prof').value = datos.prof || '';
             document.getElementById('curso').value = datos.curso || '';
             document.getElementById('trimestre').value = datos.trimestre || '';
-            
-            if (datos.historiales) {
-                datosHistorialAlumnos = datos.historiales;
-            }
-
-            if (datos.alumnos && datos.alumnos.length > 0) {
-                datos.alumnos.forEach((a, index) => {
-                    agregarAlumno(a.nombre, a.ser, a.saber, a.hacer, a.decidir, datos.historiales ? datos.historiales[index] : null);
-                });
-            } else {
-                agregarAlumno('');
-            }
-        } else {
-            agregarAlumno('');
-        }
+            datosHistorialAlumnos = datos.historiales || {};
+            if (datos.alumnos && datos.alumnos.length) {
+                datos.alumnos.forEach((a, i) => agregarAlumno(a.nombre, a.ser, a.saber, a.hacer, a.decidir, datos.historiales ? datos.historiales[i] : null));
+            } else { agregarAlumno(''); }
+        } else { agregarAlumno(''); }
         actualizarEstadisticas();
     }
 
-    function cambiarMateria() {
-        cargarDatos();
-    }
+    function cambiarMateria() { cargarDatos(); }
 
     function exportarExcelMovil() {
-        reiniciarTemporizadorInactividad();
         let csv = [];
-        let materia = document.getElementById('materiaSelect').value;
         let filas = document.querySelectorAll("#tabla-principal tr");
-        
-        for (let i = 0; i < filas.length; i++) {
-            let fila = [], cols = filas[i].querySelectorAll("td input, th");
-            for (let j = 0; j < cols.length; j++) {
-                let val = cols[j].value !== undefined ? cols[j].value : cols[j].innerText;
-                fila.push('"' + val + '"');
-            }
+        filas.forEach(f => {
+            let fila = [];
+            f.querySelectorAll("td input, th").forEach(c => fila.push('"' + (c.value !== undefined ? c.value : c.innerText) + '"'));
             csv.push(fila.join(","));
-        }
-        
-        let csvContent = "data:text/csv;charset=utf-8,\ufeff" + csv.join("\n");
-        let encodedUri = encodeURI(csvContent);
-        let link = document.createElement("a");
-        link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "consolidado_" + materia + "_2026.csv");
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-
-    function exportarPDFMovil() {
-        reiniciarTemporizadorInactividad();
-        let ue = document.getElementById('ue').value;
-        let prof = document.getElementById('prof').value;
-        let curso = document.getElementById('curso').value;
-        let trimestre = document.getElementById('trimestre').value;
-        let materia = document.getElementById('materiaSelect').value;
-
-        let ventanaImpresion = window.open('', '_blank');
-        ventanaImpresion.document.write(`
-            <html>
-            <head>
-                <title>Reporte - ${materia} - ${curso}</title>
-                <style>
-                    body { font-family: Arial, sans-serif; padding: 20px; color: #000; }
-                    h2 { text-align: center; color: #1e3a8a; margin-bottom: 5px; }
-                    .info { font-size: 12px; margin-bottom: 15px; text-align: center; }
-                    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 11px; }
-                    th, td { border: 1px solid #333; padding: 6px; text-align: center; }
-                    th { background-color: #1e3a8a; color: white; }
-                    .nombre { text-align: left !important; }
-                </style>
-            </head>
-            <body>
-                <h2>LIBRETA DOCENTE OFICIAL - BOLIVIA 2026</h2>
-                <div class="info">
-                    <b>Unidad Educativa:</b> ${ue} | <b>Profesor(a):</b> ${prof}<br>
-                    <b>Curso:</b> ${curso} | <b>Asignatura:</b> ${materia} | <b>Periodo:</b> ${trimestre}
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>N°</th>
-                            <th>Apellidos y Nombres</th>
-                            <th>Ser (10%)</th>
-                            <th>Saber (35%)</th>
-                            <th>Hacer (35%)</th>
-                            <th>Decidir (20%)</th>
-                            <th>Final (100)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-        `);
-
-        let filas = document.querySelectorAll("#tabla-principal tr");
-        filas.forEach((fila, idx) => {
-            if (idx === 0) return;
-            let inputs = fila.querySelectorAll("input");
-            if (inputs.length >= 6) {
-                let num = idx;
-                let nombre = inputs[0].value;
-                let ser = inputs[1].value;
-                let saber = inputs[2].value;
-                let hacer = inputs[3].value;
-                let decidir = inputs[4].value;
-                let final = inputs[5].value;
-
-                ventanaImpresion.document.write(`
-                    <tr>
-                        <td>${num}</td>
-                        <td class="nombre">${nombre}</td>
-                        <td>${ser}</td>
-                        <td>${saber}</td>
-                        <td>${hacer}</td>
-                        <td>${decidir}</td>
-                        <td><b>${final}</b></td>
-                    </tr>
-                `);
-            }
         });
-
-        ventanaImpresion.document.write(`
-                    </tbody>
-                </table>
-                <script>
-                    window.onload = function() { window.print(); }
-                <\/script>
-            </body>
-            </html>
-        `);
-        ventanaImpresion.document.close();
+        let link = document.createElement("a");
+        link.href = encodeURI("data:text/csv;charset=utf-8,\ufeff" + csv.join("\n"));
+        link.download = "libreta_2026.csv";
+        link.click();
     }
 
-    window.onload = function() {
-        verificarSesion();
-    };
+    function exportarPDFMovil() { window.print(); }
+
+    window.onload = function() { verificarSesion(); };
 </script>
 </body>
 </html>
