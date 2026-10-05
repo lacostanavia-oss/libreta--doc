@@ -10,8 +10,8 @@
         
         #portadaAcceso { background: radial-gradient(circle, #1e3a8a 0%, #0b0f19 100%); padding: 35px 20px; border-radius: 22px; text-align: center; width: 100%; max-width: 420px; box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 2px solid #3b82f6; margin: auto; }
         
-        .portada-img-grande { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 4px solid #60a5fa; box-shadow: 0 0 45px rgba(96, 165, 250, 0.9); margin: 0 auto; display: block; cursor: pointer; transition: all 0.4s ease-in-out; }
-        .portada-img-grande.minimazada { width: 85px; height: 85px; border-width: 3px; box-shadow: 0 0 15px rgba(96, 165, 250, 0.6); margin-bottom: 5px; }
+        .portada-img-grande { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 4px solid #60a5fa; box-shadow: 0 0 45px rgba(96, 165, 250, 0.9); margin: 0 auto; display: block; cursor: pointer; transition: all 0.4s ease-in-out; }
+        .portada-img-grande.minimazada { width: 90px; height: 90px; border-width: 3px; box-shadow: 0 0 15px rgba(96, 165, 250, 0.6); margin-bottom: 10px; }
         
         .auth-box { text-align: left; background: rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 0 14px; border: 1px solid rgba(59, 130, 246, 0.5); max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.5s ease, opacity 0.4s ease, padding 0.3s ease; }
         .auth-box.activo { max-height: 600px; opacity: 1; padding: 14px; margin-top: 15px; }
@@ -20,7 +20,6 @@
         .auth-box input { width: 100%; padding: 11px; border: 1px solid #3b82f6; border-radius: 8px; font-size: 13px; margin-bottom: 10px; background: #1e293b; color: white; text-align: center; letter-spacing: 1px; }
         
         .btn-accion { background: linear-gradient(135deg, #10b981, #059669); color: white; border: none; padding: 12px; border-radius: 8px; font-size: 12px; font-weight: bold; cursor: pointer; width: 100%; text-transform: uppercase; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); margin-top: 5px; }
-        .btn-link-secundario { background: transparent; border: none; color: #93c5fd; font-size: 11px; text-decoration: underline; cursor: pointer; width: 100%; margin-top: 8px; text-align: center; display: block; }
 
         .container { max-width: 100%; width: 100%; margin: auto; background: #ffffff; padding: 14px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); color: #1e293b; display: none; }
         .container.visible { display: block; }
@@ -100,23 +99,7 @@
         <input type="email" id="regCorreo" placeholder="profesor@correo.com">
         <label>Número de Celular:</label>
         <input type="tel" id="regCelular" placeholder="70000000" inputmode="numeric">
-        <button class="btn-accion" onclick="guardarFase1()">Siguiente (Crear PIN)</button>
-    </div>
-
-    <div id="seccionFase2" class="auth-box">
-        <p style="font-size:10px; color:#93c5fd; text-align:center; margin-top:0;">💡 Crea tu PIN de 4 dígitos:</p>
-        <label>Crear PIN:</label>
-        <input type="password" id="regPin1" placeholder="••••" maxlength="4" inputmode="numeric">
-        <label>Repetir PIN:</label>
-        <input type="password" id="regPin2" placeholder="••••" maxlength="4" inputmode="numeric">
-        <button class="btn-accion" onclick="guardarFase2Final()">Finalizar y Entrar</button>
-    </div>
-
-    <div id="seccionLoginPin" class="auth-box">
-        <p style="font-size:10px; color:#93c5fd; text-align:center; margin-top:0;">🛡️ Ingrese su PIN:</p>
-        <input type="password" id="loginPin" placeholder="••••" maxlength="4" inputmode="numeric" oninput="autoValidarPin(this)">
-        <button class="btn-accion" onclick="validarPin()">Desbloquear</button>
-        <button class="btn-link-secundario" onclick="recuperarPin()">¿Olvidó su PIN?</button>
+        <button class="btn-accion" onclick="guardarFase1()">Entrar a la Libreta</button>
     </div>
 </div>
 
@@ -213,6 +196,8 @@
             <div class="modal-field"><label>Sem 2:</label><input type="number" id="mSem2" min="0" max="100" inputmode="numeric"></div>
             <div class="modal-field"><label>Sem 3:</label><input type="number" id="mSem3" min="0" max="100" inputmode="numeric"></div>
             <div class="modal-field"><label>Sem 4:</label><input type="number" id="mSem4" min="0" max="100" inputmode="numeric"></div>
+            <div class="modal-field"><label>Sem 5:</label><input type="number" id="mSem5" min="0" max="100" inputmode="numeric"></div>
+            <div class="modal-field"><label>Sem 6:</label><input type="number" id="mSem6" min="0" max="100" inputmode="numeric"></div>
         </div>
         <button class="btn-sugerir" onclick="sugerirPromedioASaber()">💡 Sugerir Nota Saber</button>
         <button class="btn-close" onclick="cerrarHistorial()">Guardar y Cerrar</button>
@@ -223,42 +208,27 @@
     let filaActualIndex = null;
     let datosHistorialAlumnos = {};
     const URL_IMAGEN_OFICIAL = "https://i.ibb.co/wh1Yp5YM/1000736334.png";
-    let datosTempFase1 = {};
 
     function verificarSesion() {
-        let perfilGuardado = localStorage.getItem('libreta_docente_2026_v37');
+        let perfilGuardado = localStorage.getItem('libreta_docente_2026_v38');
         let imgPortada = document.getElementById('imgPortadaAvatar');
         let imgEl = document.querySelector('.portada-img-grande');
         if (imgPortada) imgPortada.src = URL_IMAGEN_OFICIAL;
 
-        // Aseguramos que inicie cerrado por defecto
         if (imgEl) imgEl.classList.remove('minimazada');
         document.getElementById('seccionFase1').classList.remove('activo');
-        document.getElementById('seccionFase2').classList.remove('activo');
-        document.getElementById('seccionLoginPin').classList.remove('activo');
 
-        if (!perfilGuardado) {
-            // No hay perfil: se queda la imagen grande sola esperando toque
-        } else {
+        if (perfilGuardado) {
             let perfil = JSON.parse(perfilGuardado);
-            if (imgPortada) imgPortada.src = perfil.foto || URL_IMAGEN_OFICIAL;
+            cargarPerfilEnInterfaz(perfil);
+            entrarAlSistema();
         }
     }
 
     function toggleMinimizarYDeslizar() {
         let img = document.querySelector('.portada-img-grande');
-        let perfilGuardado = localStorage.getItem('libreta_docente_2026_v37');
-        
         if (img) img.classList.toggle('minimazada');
-
-        if (!perfilGuardado) {
-            let f1 = document.getElementById('seccionFase1');
-            let f2 = document.getElementById('seccionFase2');
-            if (!f2.classList.contains('activo')) f1.classList.toggle('activo');
-        } else {
-            let loginBox = document.getElementById('seccionLoginPin');
-            loginBox.classList.toggle('activo');
-        }
+        document.getElementById('seccionFase1').classList.toggle('activo');
     }
 
     function guardarFase1() {
@@ -266,48 +236,18 @@
         let correo = document.getElementById('regCorreo').value.trim();
         let celular = document.getElementById('regCelular').value.trim();
         if (!nombre || !correo || !celular) { alert('Complete nombre, correo y celular.'); return; }
-        datosTempFase1 = { nombre, correo, celular };
-        document.getElementById('seccionFase1').classList.remove('activo');
-        setTimeout(() => document.getElementById('seccionFase2').classList.add('activo'), 200);
-    }
-
-    function guardarFase2Final() {
-        let pin1 = document.getElementById('regPin1').value.trim();
-        let pin2 = document.getElementById('regPin2').value.trim();
-        if (!pin1 || pin1.length < 4) { alert('Ingrese un PIN de 4 dígitos.'); return; }
-        if (pin1 !== pin2) { alert('Los PINs no coinciden.'); return; }
 
         let nuevoPerfil = {
-            nombre: datosTempFase1.nombre, correo: datosTempFase1.correo, celular: datosTempFase1.celular,
-            ue: 'Unidad Educativa', pin: pin1, foto: URL_IMAGEN_OFICIAL, ultimaModificacionFoto: Date.now()
+            nombre: nombre, correo: correo, celular: celular,
+            ue: 'Unidad Educativa', foto: URL_IMAGEN_OFICIAL, ultimaModificacionFoto: Date.now()
         };
-        localStorage.setItem('libreta_docente_2026_v37', JSON.stringify(nuevoPerfil));
+        localStorage.setItem('libreta_docente_2026_v38', JSON.stringify(nuevoPerfil));
         cargarPerfilEnInterfaz(nuevoPerfil);
         entrarAlSistema();
     }
 
-    function autoValidarPin(input) { if (input.value.length === 4) validarPin(); }
-
-    function validarPin() {
-        let pinInput = document.getElementById('loginPin');
-        let pinIngresado = pinInput ? pinInput.value.trim() : '';
-        let perfil = JSON.parse(localStorage.getItem('libreta_docente_2026_v37'));
-        if (perfil && (pinIngresado === perfil.pin || pinIngresado === '1717')) {
-            cargarPerfilEnInterfaz(perfil);
-            entrarAlSistema();
-        } else if(pinIngresado.length === 4) {
-            alert('PIN incorrecto.');
-            pinInput.value = '';
-        }
-    }
-
-    function recuperarPin() {
-        let perfil = JSON.parse(localStorage.getItem('libreta_docente_2026_v37'));
-        alert('Tu PIN actual es: ' + (perfil ? perfil.pin : '1717'));
-    }
-
     function verificarYCambiarPerfil() {
-        let perfil = JSON.parse(localStorage.getItem('libreta_docente_2026_v37'));
+        let perfil = JSON.parse(localStorage.getItem('libreta_docente_2026_v38'));
         let ahora = Date.now();
         let sieteDiasMs = 7 * 24 * 60 * 60 * 1000;
 
@@ -326,11 +266,11 @@
         if (archivo) {
             let lector = new FileReader();
             lector.onload = function(e) {
-                let perfil = JSON.parse(localStorage.getItem('libreta_docente_2026_v37'));
+                let perfil = JSON.parse(localStorage.getItem('libreta_docente_2026_v38'));
                 if (perfil) {
                     perfil.foto = e.target.result;
                     perfil.ultimaModificacionFoto = Date.now();
-                    localStorage.setItem('libreta_docente_2026_v37', JSON.stringify(perfil));
+                    localStorage.setItem('libreta_docente_2026_v38', JSON.stringify(perfil));
                     cargarPerfilEnInterfaz(perfil);
                     alert('✨ ¡Foto actualizada!');
                 }
@@ -373,7 +313,7 @@
         let tbody = document.getElementById('cuerpo-tabla');
         let index = tbody.rows.length;
         if (hist) datosHistorialAlumnos[index] = hist;
-        else if (!datosHistorialAlumnos[index]) datosHistorialAlumnos[index] = { apuntes: '', sem1: 0, sem2: 0, sem3: 0, sem4: 0 };
+        else if (!datosHistorialAlumnos[index]) datosHistorialAlumnos[index] = { apuntes: '', sem1: 0, sem2: 0, sem3: 0, sem4: 0, sem5: 0, sem6: 0 };
 
         let fila = tbody.insertRow();
         fila.innerHTML = `
@@ -417,12 +357,8 @@
 
     function sugerirPromedioASaber() {
         if (filaActualIndex === null) return;
-        let s1 = parseFloat(document.getElementById('mSem1').value) || 0;
-        let s2 = parseFloat(document.getElementById('mSem2').value) || 0;
-        let s3 = parseFloat(document.getElementById('mSem3').value) || 0;
-        let s4 = parseFloat(document.getElementById('mSem4').value) || 0;
-        let validas = [s1, s2, s3, s4].filter(v => v > 0);
-        let prom = validas.length ? (validas.reduce((a,b)=>a+b,0)/validas.length) : 0;
+        let vals = [1,2,3,4,5,6].map(i => parseFloat(document.getElementById('mSem' + i).value) || 0).filter(v => v > 0);
+        let prom = vals.length ? (vals.reduce((a,b)=>a+b,0)/vals.length) : 0;
         let sugerido = Math.round((prom * 35) / 100);
         document.querySelectorAll('#cuerpo-tabla tr')[filaActualIndex].querySelector('.saber').value = sugerido;
         calcularFinal(document.querySelectorAll('#cuerpo-tabla tr')[filaActualIndex].querySelector('.saber'));
@@ -431,31 +367,24 @@
 
     function abrirHistorial(index) {
         filaActualIndex = index;
-        let hist = datosHistorialAlumnos[index] || { apuntes: '', sem1: 0, sem2: 0, sem3: 0, sem4: 0 };
+        let hist = datosHistorialAlumnos[index] || { apuntes: '', sem1: 0, sem2: 0, sem3: 0, sem4: 0, sem5: 0, sem6: 0 };
         document.getElementById('modalTitulo').innerText = "Historial Alumno #" + (index + 1);
         document.getElementById('textoApuntes').value = hist.apuntes;
-        document.getElementById('mSem1').value = hist.sem1;
-        document.getElementById('mSem2').value = hist.sem2;
-        document.getElementById('mSem3').value = hist.sem3;
-        document.getElementById('mSem4').value = hist.sem4;
+        for(let i=1; i<=6; i++) document.getElementById('mSem'+i).value = hist['sem'+i] || 0;
         document.getElementById('modalHistorial').style.display = 'flex';
     }
 
     function cerrarHistorial() {
         if (filaActualIndex !== null) {
-            datosHistorialAlumnos[filaActualIndex] = {
-                apuntes: document.getElementById('textoApuntes').value,
-                sem1: document.getElementById('mSem1').value,
-                sem2: document.getElementById('mSem2').value,
-                sem3: document.getElementById('mSem3').value,
-                sem4: document.getElementById('mSem4').value
-            };
+            let hist = { apuntes: document.getElementById('textoApuntes').value };
+            for(let i=1; i<=6; i++) hist['sem'+i] = document.getElementById('mSem'+i).value;
+            datosHistorialAlumnos[filaActualIndex] = hist;
         }
         document.getElementById('modalHistorial').style.display = 'none';
         filaActualIndex = null;
     }
 
-    function obtenerClaveStorage() { return 'libreta_v37_' + document.getElementById('materiaSelect').value; }
+    function obtenerClaveStorage() { return 'libreta_v38_' + document.getElementById('materiaSelect').value; }
 
     function guardarLocalmenteSilencioso() {
         let datos = {
